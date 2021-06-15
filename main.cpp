@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 //#include <algorithm> //sort(a, a+n)
-#include <string.h> //string
+//#include <string.h> //string
 
 using namespace std;
 ifstream fin("file.in");
@@ -40,21 +40,23 @@ void dfs(int x){
 int tipGraf() {
   int grafComp=1, grafCon=1, grafEul=1, grafHam=1;
 
+  cout << "Neorientat: DA" << endl << "Orientat: NU" << endl << endl;
+
   //graf complet/partial
   for (int i=1; i<=n; i++)
     for (int y=i+1; y<=n; y++)
       if (ad[i][y]==0) {grafComp=0; break;}
   cout << "Complet: ";
-  if (grafComp==1) cout << "DA"<< endl << "Partial: NU";
-    else cout << "NU" << endl << "Partial: DA";
+  if (grafComp==1) cout << "DA"<< endl << "Partial: NU" << endl << endl;
+    else cout << "NU" << endl << "Partial: DA" << endl << endl;
 
   //graf conex/non-conex
   dfs(1);
   for(int i=1; i<=n; i++)
     if (viz[i]==0) grafCon=0;
-  cout << endl << "Conex: ";
-  if (grafCon==1) cout << "DA";
-    else cout << "NU";
+  cout << "Conex: ";
+  if (grafCon==1) cout << "DA" << endl << endl;
+    else cout << "NU" << endl << endl;
 
   //graf eulerian/non-eulerian
 
